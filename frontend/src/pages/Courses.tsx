@@ -2,6 +2,7 @@ import {  useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { ICourses } from "../types/ICourses";
 import { useState } from "react";
 import styles from "../styles/modal.module.css"
+import "../styles/courseStyle.css"
 import { useForm } from "react-hook-form";
 import { courseschema, type CourseSchema } from "../schemas/courseSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,8 +47,8 @@ export default function Courses() {
     })
 
     const {mutate: deletar} = useMutation<void,Error, {id: number}>({
-        mutationFn: (data) => fetch(`http://localhost:3000/courses/${data.id}`, {
-            method: "DELETE",
+        mutationFn: (data) => fetch(`http://localhost:3000/courses/${data.id}/toggle`, {
+            method: "PATCH",
             headers: {'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
@@ -84,12 +85,11 @@ export default function Courses() {
 
     return (
         <>
-        
+        <h1 className="h1-courses">Cursos</h1>
         <button onClick={() => setModal(true)}>Criar curso</button>
         {modal && (
     <div className={styles.overlay} onClick={() => setModal(false)}>
     <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <p>adadadadadadada</p>
       <button onClick={() => setModal(false)}>Fechar</button>
       <form onSubmit={handleSubmit(onsubmit)}>
         <label htmlFor="name">Nome do curso</label>
@@ -109,16 +109,20 @@ export default function Courses() {
 )}
         {isLoading && <p>Carregando...</p>}
         {isError && <p>Erro na requisição!</p>} 
-        {data?.map((item, i) => (
-            <div key={i}>
-                <h1>{item.name}</h1>
-                <p>{item.id}</p>
-                <p>{item.price}</p>
-                <p>{item.active ? 'Ativo' : 'Inativo'}</p>
-                <button onClick={() => deletar({id: item.id})}>Desativar</button>
-                <button onClick={() => setCursoselecionado(item.id)}>Ver matrículas</button>
-            </div>
-        ))}
+        <div className="courses-container">
+            {data?.map((item, i) => (
+            
+                    <div key={i} className="div-courses" >
+                        <h4>{item.name}</h4>
+                        <p>ID: {item.id}</p>
+                        <p>Preço: {item.price}</p>
+                        <p>{item.active ? 'Ativo' : 'Inativo'}</p>
+                        <button onClick={() => deletar({id: item.id})}>{item.active ? "Desativar": "Ativar"}</button>
+                        <button onClick={() => setCursoselecionado(item.id)}>Ver matrículas</button>
+                    </div>
+                
+            ))}
+        </div>
        
         {
         //se o curso foi diferente de nulo, mostra o modal

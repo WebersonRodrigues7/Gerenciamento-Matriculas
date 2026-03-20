@@ -66,7 +66,7 @@ export default function Auth({ children }: { children: React.ReactNode }) {
         setLogado(false)
         // removendo o token
         localStorage.removeItem('token')
-        navigate('/login')
+        navigate('/')
     }
     return (
         <>

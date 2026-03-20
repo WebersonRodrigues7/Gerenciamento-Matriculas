@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-
+import "../styles/navbar.css"
 
 export default function Navbar() {
 const {logout} = useContext(AuthContext)
@@ -16,9 +16,11 @@ if(!token) {
     return (
         
             <header>
-                <Link to={'/courses'}>Cursos</Link>
-                <Link to={'/enrollments'}>Matriculas</Link>
-                <button onClick={logout}>Logout</button>
+                    <Link className="curemat" to={'/courses'}>Cursos</Link>
+
+                    <Link className="curemat" to={'/enrollments'}>Matriculas</Link>
+                
+                <button className="logout" onClick={logout}>Logout</button>
             </header>
 
     )

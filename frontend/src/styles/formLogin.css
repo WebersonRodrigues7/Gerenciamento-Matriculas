@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.container {
+    position: relative;
+    overflow: hidden;
+    background-color: #0f172a;
+    background-image: radial-gradient(#ffffff10 1px, transparent 1px);
+    background-size: 20px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: #ff5e00;
+  filter: blur(150px);
+  top: 20%;
+  left: 30%;
+  z-index: 0;
+}
+
+.container form {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #d34e01, #ca7309);
+    height: 400px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    
+}
+
+.container form div {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    top: 3%;
+    justify-content: center;
+    
+}
+
+.container form div p{
+    padding-top: 3px;
+    color: rgb(161, 9, 9);
+    font-weight: 550;
+    font-size: .8em;
+}
+
+
+
+.container form img {
+    width: 80px;
+
+}
+
+.container form div span {
+    position: absolute;
+    left: 13%;
+}
+
+.container form div input{
+    width: 250px;
+    height: 42px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.562);
+    border:none;
+    text-indent: 10px;
+}
+
+.container form div input:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15);
+}
+
+.container form button {
+    background-color: rgb(255, 136, 0);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.445);
+    border: none;
+    color: white;
+    font-weight: bolder;
+    border-radius: 8px;
+    padding: 10px 23px;
+    transition: 0.2s ease;
+    
+}
+
+.div-pass {
+    margin-bottom: 25px;
+}
+
+
+.container form button:hover{
+    background-color: rgb(223, 119, 0) ;
+    cursor: pointer;
+    transform: scale(1.05);
+
+}
+
+h3 {
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 30px;
+}
+
+

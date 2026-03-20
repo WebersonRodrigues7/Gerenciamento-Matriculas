@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post, Put, UseGuards } from '@nestjs/common';
 import { CourseService } from './course.service';
 import { CourseDTO } from './dto/upsert-dto.collaborator';
 import { Public } from 'src/auth/auth.guard';
@@ -42,11 +42,11 @@ export class CourseController {
         return this.courseService.update(courseID, updateBody);
     }
 
-    @UseGuards(AuthGuard('jwt'))
-    @Delete(':id')
-    delete(@Param('id') courseID: number){
-        return this.courseService.delete(courseID);
-    }
 
+    @UseGuards(AuthGuard('jwt'))
+    @Patch(':id/toggle')
+    patch(@Param('id') courseId: number){
+        return this.courseService.toggleActive(courseId)
+    }
 
 }

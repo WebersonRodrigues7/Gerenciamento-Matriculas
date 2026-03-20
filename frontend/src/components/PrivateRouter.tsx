@@ -7,7 +7,7 @@ export default function PrivateRouter({children}: {children: React.ReactNode}){
     //pegando o token e caso nao achar, redirecionar pro login
     let token = localStorage.getItem('token')
     if (!token){
-        return <Navigate to='/login' />
+        return <Navigate to='/' />
     }
     else {
         return (

@@ -12,7 +12,7 @@ function App() {
      <>
      <Navbar />
      <Routes>
-      <Route path="/login" element={<Login />}></Route>
+      <Route path="/" element={<Login />}></Route>
       <Route path="/enrollments" element={
         //deixando a rota privada 
         <PrivateRouter>
