@@ -5,11 +5,20 @@
     justify-content: center;
 }
 
+.body {
+    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 .div-courses {
+    padding: 12px;
     width: 230px;
-    height: 150px;
     border-radius: 10px;
-    background: linear-gradient(120deg, #b94502, #ee8f1c);
+    background: linear-gradient(120deg, #04079e, #0313fc);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,6 +26,9 @@
     color: white;
     border: 1px solid white;
 }
+
+.status-ativo { color: #00ff88; }
+.status-inativo { color: #ff4444; }
 
 .div-courses h4 {
     margin-top: 3px;
@@ -44,8 +56,63 @@
 
 .h1-courses {
    text-align: center;
-   background: linear-gradient(120deg, #b94502, #ee8f1c);
+   background: linear-gradient(120deg, #182dec, #010649);
    background-clip: text;
    color: transparent;
 }
 
+.div-logout {
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+}
+
+.logout {
+    padding: 3px;
+    border-radius: 5px;
+    font-size: .8em;
+    border: none;
+    background-color: orangered;
+    font-weight: bolder;
+    transition: 0.4s ease;
+}
+
+.logout:hover {
+    cursor: pointer;
+    background-color: rgb(201, 54, 0);
+}
+
+.identifier-p {
+    text-align: end;
+    font-size: .7em;
+}
+
+.span-email {
+    color: blue;
+}
+
+.div-logParag {
+    margin-top: 60px;
+    
+}
+
+
+.btn-createCourse {
+    display: flex;
+    justify-content: center;
+}
+.btn-createCourse > button {
+    padding: 12px;
+    margin: 10px;
+    border: none;
+    background: linear-gradient(120deg, #182dec, #020974);
+    color: white;
+    border-radius: 6px; 
+    transition: 0.3s ease;
+}
+
+.btn-createCourse > button:hover {
+    box-shadow: 0 0 10px 0 #0401b1;
+    cursor: pointer;
+    transform: translateY(-2px);
+}

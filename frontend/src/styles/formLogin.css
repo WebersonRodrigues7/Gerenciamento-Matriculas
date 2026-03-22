@@ -86,18 +86,21 @@
 
 .container form div input:focus {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.61);
+  transform: scale(1.02);
+  
 }
 
 .container form button {
     background-color: rgb(255, 136, 0);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.445);
     border: none;
+    border: 1px solid white;
     color: white;
     font-weight: bolder;
     border-radius: 8px;
     padding: 10px 23px;
-    transition: 0.2s ease;
+    transition: 0.4s ease;
     
 }
 
@@ -107,10 +110,10 @@
 
 
 .container form button:hover{
-    background-color: rgb(223, 119, 0) ;
     cursor: pointer;
-    transform: scale(1.05);
-
+    transform: translateY(-2px);
+    box-shadow: 0px 0px 10px 0px rgba(250, 250, 250, 0.822);
+    
 }
 
 h3 {

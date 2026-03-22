@@ -12,7 +12,6 @@ import { CircleUserRound } from 'lucide-react';
 
 export default function Login(){
 const {login, erro} = useContext(AuthContext)
-const navigate = useNavigate()
 const {register, handleSubmit, reset, formState: {errors}} = useForm<LoginSchema>({
     resolver: zodResolver(loginschema)
 })

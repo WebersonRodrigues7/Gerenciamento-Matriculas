@@ -1,27 +1,20 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
 import "../styles/navbar.css"
 
 export default function Navbar() {
-const {logout} = useContext(AuthContext)
-const token = localStorage.getItem('token')
 
-
-// caso a pagina nao tiver token do usuario, nao mostra a navbar
-if(!token) {
-    return null
-}
 
     return (
+        <>
         
+            
             <header>
-                    <Link className="curemat" to={'/courses'}>Cursos</Link>
-
-                    <Link className="curemat" to={'/enrollments'}>Matriculas</Link>
-                
-                <button className="logout" onClick={logout}>Logout</button>
+                    <h1>Gerenciamento matrícula</h1>
+                    <div>
+                        <Link className="curemat" to={'/courses'}>Cursos</Link>
+                        <Link className="curemat" to={'/enrollments'}>Matriculas</Link>
+                    </div>
             </header>
-
+        </>
     )
 }

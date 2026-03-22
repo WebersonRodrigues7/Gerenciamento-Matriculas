@@ -1,0 +1,22 @@
+
+
+footer{
+    
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(120deg, #04079e, #0313fc);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 3px 11px rgba(0, 0, 0, 0.397);
+    color: white;
+    
+}
+
+.div-logParag {
+    flex: 1;
+}
+
+
+
+

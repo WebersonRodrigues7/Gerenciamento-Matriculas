@@ -1,11 +1,22 @@
 header {
+    
+    gap: 10px;
+    background: linear-gradient(120deg, #182dec, #010649);
+    align-items: center;
+    height: 135px;
+    
+}
+
+header h1 {
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+header div {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    background-color: #131e36;
-    align-items: center;
-    height: 100px;
-    
+    gap: 15px;
 }
 
 
@@ -24,6 +35,4 @@ header {
     transform: translateY(-2px);
 
 }
-.logout {
-    height: 20px;
-}
+

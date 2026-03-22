@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form"
 import type {EnrollmentsSchema} from "../schemas/enrollmentsSchema"
 import { enrollmentSchema,  } from "../schemas/enrollmentsSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
+import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 
 export default function Enrollments() {
@@ -44,6 +46,7 @@ function onsubmit(data: EnrollmentsSchema) {
 
     return (
         <>
+        <Navbar />
         <form onSubmit={handleSubmit(onsubmit)}>
             <label htmlFor="name">Nome</label>
             <input {...register("studentName")} id="name" type="text" />
@@ -65,7 +68,7 @@ function onsubmit(data: EnrollmentsSchema) {
             {errors.courseId && <p>{errors.courseId.message}</p>}
             <button type="submit">Criar matricula</button>
         </form>
-            
+        <Footer />
         </>
     )
 }
