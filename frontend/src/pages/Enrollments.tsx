@@ -6,6 +6,8 @@ import { enrollmentSchema,  } from "../schemas/enrollmentsSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import "../styles/enrollmentStyle.css"
+import { FaArrowLeft } from "react-icons/fa"
 
 
 export default function Enrollments() {
@@ -19,7 +21,10 @@ export default function Enrollments() {
     studentPhone: string,
     birthDate: string,
     studentCpf: string,
-    courseId: number}>({
+    courseId: number}
+    >
+    
+    ({
         // pegando a api
         mutationFn: (data) => fetch("http://localhost:3000/enrollments", {
             method: "POST",
@@ -47,6 +52,9 @@ function onsubmit(data: EnrollmentsSchema) {
     return (
         <>
         <Navbar />
+        <p className="back-to"><FaArrowLeft /> Voltar para listagem</p>
+        <h2 className="h2-enrollment">Nova Matrícula</h2>
+        <p>Preencha os dados abaixo para formalizar o ingresso do novo aluno no ecossistema de cursos</p>
         <form onSubmit={handleSubmit(onsubmit)}>
             <label htmlFor="name">Nome</label>
             <input {...register("studentName")} id="name" type="text" />

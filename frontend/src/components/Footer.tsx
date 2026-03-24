@@ -7,14 +7,15 @@ export default function Footer(){
     return (
         <>
             <footer>
-                
-                
-                <p className="copy">Copyright 2026 &copy;</p>
-                <p className="developer">Desenvolvido por </p>
-                <div className="icons-footer">
-                    <FaInstagram/>
-                    <FaLinkedin />
-                    <FaGithubSquare />
+
+                <p className="title-footer">Gerenciamento de  Matrícula</p>
+                <ul className="developer">
+                    <li>Privacidade</li>
+                    <li>Termos</li>
+                    <li>Suporte</li>               
+                </ul>
+                <div className="copy">
+                    <p>&copy; 2026 Gerenciamento de Matrícula. Todos os direitos reservados.</p>
                 </div>
             </footer>
         

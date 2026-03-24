@@ -4,6 +4,7 @@ import PrivateRouter from "./components/PrivateRouter"
 import Enrollments from "./pages/Enrollments"
 import Courses from "./pages/Courses"
 
+
 function App() {
   
 

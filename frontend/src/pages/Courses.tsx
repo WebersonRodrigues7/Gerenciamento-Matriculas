@@ -1,16 +1,20 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { ICourses } from "../types/ICourses";
-import { useContext, useState } from "react";
 import styles from "../styles/modal.module.css"
 import "../styles/courseStyle.css"
 import { useForm } from "react-hook-form";
 import { courseschema, type CourseSchema } from "../schemas/courseSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { IEnrollments } from "../types/IEnrollments";
-import { AuthContext } from "../context/AuthContext";
-import {jwtDecode} from "jwt-decode"
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useState } from "react";
+import { IoIosRemoveCircle } from "react-icons/io";
+import { IoAddCircle, IoEyeSharp } from "react-icons/io5";
+import { FaMoneyBill1Wave } from "react-icons/fa6";
+
+import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
+
 export default function Courses() {
     const [cursoselecionado, setCursoselecionado] = useState<number | null>(null)
     const queryClient = useQueryClient()
@@ -20,15 +24,6 @@ export default function Courses() {
     })
 
 
-    const { logout } = useContext(AuthContext)
-    const token = localStorage.getItem('token')
-    const user = token ? jwtDecode<{ email: string }>(token) : null
-
-
-    // caso a pagina nao tiver token do usuario, nao mostra a navbar
-    if (!token) {
-        return null
-    }
     const { data, isLoading, isError } = useQuery<ICourses[]>({
         queryKey: ["courses"],
         // pegando a api
@@ -100,45 +95,77 @@ export default function Courses() {
 
 
     return (
+
         <div className="body">
             <Navbar />
-            <h1 className="h1-courses">Cursos</h1>
-            <div className="btn-createCourse"><button  onClick={() => setModal(true)}>Criar curso</button></div>
-            {modal && (
-                <div className={styles.overlay} onClick={() => setModal(false)}>
-                    <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-                        <button onClick={() => setModal(false)}>Fechar</button>
-                        <form onSubmit={handleSubmit(onsubmit)}>
-                            <label htmlFor="name">Nome do curso</label>
-                            <input {...register("name")} id="name" type="text" placeholder="Ex: Curso de TI" />
-                            {errors.name && <p>{errors.name.message}</p>}
-                            <label htmlFor="price">Preço</label>
-                            <input {...register("price", { valueAsNumber: true })} type="text" id="price" placeholder="Ex: 200" />
-                            {errors.price && <p>{errors.price.message}</p>}
-                            <label htmlFor="description">Descrição</label>
-                            <input {...register("description")} type="text" id="description" placeholder="Aprender a..." />
-                            {errors.description && <p>{errors.description.message}</p>}
-                            <button type="submit">Criar</button>
 
-                        </form>
+            <h1 className="h1-courses">Cursos</h1>
+            <div className="div-courses-all">
+                <p className="courses-paragraph">Gerencie o catálogo de cursos, monitore o status de ativação e visualize as matrículas ativas em cada módulo.</p>
+                <div className="btn-createCourse"><button onClick={() => setModal(true)}>
+                    <IoAddCircle size={17}  />
+                Criar curso</button></div>
+                {modal && (
+                    <div className={styles.overlay} onClick={() => setModal(false)}>
+                        <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+                            <button onClick={() => setModal(false)}>Fechar</button>
+                            <form onSubmit={handleSubmit(onsubmit)}>
+                                <label htmlFor="name">Nome do curso</label>
+                                <input {...register("name")} id="name" type="text" placeholder="Ex: Curso de TI" />
+                                {errors.name && <p>{errors.name.message}</p>}
+                                <label htmlFor="price">Preço</label>
+                                <input {...register("price", { valueAsNumber: true })} type="text" id="price" placeholder="Ex: 200" />
+                                {errors.price && <p>{errors.price.message}</p>}
+                                <label htmlFor="description">Descrição</label>
+                                <input {...register("description")} type="text" id="description" placeholder="Aprender a..." />
+                                {errors.description && <p>{errors.description.message}</p>}
+                                <button type="submit">Criar</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
+
+
             {isLoading && <p>Carregando...</p>}
             {isError && <p>Erro na requisição!</p>}
-            <div className="courses-container">
-                {data?.map((item, i) => (
-
-                    <div key={i} className="div-courses" >
-                        <h4>{item.name}</h4>
-                        <p>ID: {item.id}</p>
-                        <p>Preço: {item.price}</p>
-                        <p className={item.active ? "status-ativo" : "status-inativo"}>{item.active ? 'Ativo' : 'Inativo'}</p>
-                        <button onClick={() => deletar({ id: item.id })}>{item.active ? "Desativar" : "Ativar"}</button>
-                        <button onClick={() => setCursoselecionado(item.id)}>Ver matrículas</button>
-                    </div>
-
-                ))}
+            <div className="pai-courses-container">
+                <div className="courses-container">
+                    {data?.map((item, i) => (
+                        <div key={i} className={item.active ? "div-courses" : "div-courses-inative"} >
+                            <div className="actid">
+                                <p className={item.active ? "status-ativo" : "status-inativo"}>{item.active ? 'Ativo' : 'Inativo'}</p>
+                                <p className="id-course">ID: {item.id}</p>
+                            </div>
+                            <h4>{item.name}</h4>
+                            <p > <FaMoneyBill1Wave color="grey" />Preço: <span className="price">R$ {item.price}</span></p>
+                
+                            <div className="btn-div-courses">
+                                <button className={item.active ?  "curso-ativo" : "curso-inativo"} onClick={() => deletar({ id: item.id })}>{item.active ?  (
+                                    <div className="desactive-btn">
+                                       <IoIosRemoveCircle /> Desativar
+                                    </div>
+                                    ) : (
+                                        <div className="active-btn">
+                                            <FaCheckCircle color="skyblue" /> Ativar
+                                        </div>
+                                    )}
+                                    </button>
+                                <button className={item.active ? "btn-enrollments" : "btn-enrollments-desac"} onClick={() => setCursoselecionado(item.id)}>{item.active ? (
+                                    <div className="arr-enrollments">
+                                        Ver matrículas<FaArrowRight />
+                                    </div>
+                                ) : (
+                                    <div className="eye-enrollments">
+                                        Ver matrículas <IoEyeSharp />
+                                    </div>
+                                )}
+                                    
+                                    </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
 
             {
@@ -160,11 +187,6 @@ export default function Courses() {
                 )}
 
 
-
-            <div className="div-logParag">
-                <p className="identifier-p">Não é <span className="span-email">{user?.email}</span>?</p>
-                <div className="div-logout"><button className="logout" onClick={logout}>Logout</button></div>
-            </div>
             <Footer />
         </div>
     )

@@ -3,7 +3,7 @@ import { AuthContext } from "../context/AuthContext"
 import { useForm } from "react-hook-form"
 import { loginschema, type LoginSchema } from "../schemas/loginSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useNavigate } from "react-router-dom"
+
 import  "../styles/formLogin.css"
 import { CircleUserRound } from 'lucide-react';
 
@@ -11,7 +11,7 @@ import { CircleUserRound } from 'lucide-react';
 
 
 export default function Login(){
-const {login, erro} = useContext(AuthContext)
+const {login} = useContext(AuthContext)
 const {register, handleSubmit, reset, formState: {errors}} = useForm<LoginSchema>({
     resolver: zodResolver(loginschema)
 })

@@ -25,29 +25,29 @@ export default function Auth({ children }: { children: React.ReactNode }) {
     // criando a mutacao
     const { mutate } = useMutation<ILoginresponse, Error, { email: string, password: string }>(
         {
-            //passando os dados da api pro data
+           
             mutationFn: (data) =>
                 fetch("http://localhost:3000/auth/login", {
                     method: "POST",
-                    // passando o header pro backend entender o json
+                   
                     headers: { 'Content-Type': 'application/json' },
-                    // transformando em json
+                    
                     body: JSON.stringify(data)
                 }).then(r => {
                     if (!r.ok) throw new Error('Unauthorized')
                         return r.json()
                 }),
-            // quando der certo, retornar os dados e as "variaveis"
+            
             onSuccess: (data, variables) => {
-                //setando o email no usuario
+                
                 setUser({ email: variables.email })
                 setLogado(true)
-                // guardando o bearer token
+                
                 localStorage.setItem('token', data.access_token)
                 navigate("/courses")
                 setErro(null)
             },
-            // tratando o erro
+
             onError: () => {
                 setErro("Email ou senha incorretos")
             }

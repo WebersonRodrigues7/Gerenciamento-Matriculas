@@ -1,38 +1,109 @@
 header {
-    
-    gap: 10px;
-    background: linear-gradient(120deg, #182dec, #010649);
-    align-items: center;
-    height: 135px;
-    
-}
-
-header h1 {
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
-
-header div {
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    padding: 15px;
+    gap: 50px;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+}
+
+.div-link-header {
+    display: flex;
+    gap: 20px;
+    
+    
+}
+.title-courses{
+    color: #0D47A1;
+    text-indent: 70px;
+    margin: auto;
+    font-size: 1em;
 }
 
 
 .curemat {
-    border: 1px solid white;
-    padding: 8px;
-    border-radius: 5px;
-    color: white;
+    font-size: .75em;
     text-decoration: none;
-    transition: 0.4s ease;
+    color: #0D47A1;
+    transition: 0.2s ease;
 }
 
-.curemat:hover{
-    background: #ee8f1c;
-    box-shadow: 0 0 10px 0 rgb(255, 145, 0);
-    transform: translateY(-2px);
-
+.curemat:hover {
+    transform: translateY(-3px);
+    text-decoration: underline;
+    cursor: pointer;
 }
 
+.div-logParag {
+    display: flex;
+    justify-content: end;
+}
+
+.div-logout {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-right: 75px;
+}
+
+.logout {
+    font-size: .75em;
+    background-color: rgba(255, 255, 255, 0.253);
+    
+    color: #0D47A1;
+    border: none;
+}
+
+.logout:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+
+    header {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .title-courses {
+        font-size: 1.2em;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .div-link-header {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .curemat {
+        font-size: .95em;
+        font-weight: 500;
+    }
+
+    .div-logParag {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .div-logout {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .logout {
+        font-size: .8em;
+        padding: 4px 8px;
+        background: none;
+        border: none;
+        color: #0D47A1;
+    }
+    
+}

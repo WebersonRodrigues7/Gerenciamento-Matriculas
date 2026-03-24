@@ -1,118 +1,280 @@
-.courses-container {
+body {
+    background-color: whitesmoke;
+}
+
+.courses-all {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-}
-
-.body {
-    
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-
-
-.div-courses {
-    padding: 12px;
-    width: 230px;
-    border-radius: 10px;
-    background: linear-gradient(120deg, #04079e, #0313fc);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 5px 3px 11px rgba(0, 0, 0, 0.397);
-    color: white;
-    border: 1px solid white;
-}
-
-.status-ativo { color: #00ff88; }
-.status-inativo { color: #ff4444; }
-
-.div-courses h4 {
-    margin-top: 3px;
-    text-align: center;
-    font-size: .9em;
-}
-
-.div-courses button {
-    background-color: rgba(233, 142, 22, 0);
-    border: 1px solid rgba(255, 255, 255, 0.705);
-    cursor: pointer;
-    color: white;
-    border-radius: 6px;
-    margin-top: 6px;
-    padding: 5px 20px;
-    transition: 0.4s ease;
-    
-}
-
-.div-courses button:hover {
-    background: #ee8f1c;
-    box-shadow: 0 0 10px 0 rgb(255, 145, 0);
-    transform: translateY(-2px);
+    padding: 15px;
+    background-color: whitesmoke;
 }
 
 .h1-courses {
-   text-align: center;
-   background: linear-gradient(120deg, #182dec, #010649);
-   background-clip: text;
-   color: transparent;
+    color: #001945;
+    padding-top: 20px;
+    text-indent: 160px;
 }
 
-.div-logout {
+.courses-paragraph {
+    color: rgb(73, 73, 73);
+    text-align: justify;
+    font-size: .9em;
+    width: 450px;
+    margin-left: 160px;
+    margin-bottom: 30px;
+}
+
+.div-courses-all {
     display: flex;
-    justify-content: end;
-    margin-top: 10px;
 }
 
-.logout {
-    padding: 3px;
-    border-radius: 5px;
-    font-size: .8em;
+.btn-createCourse {
+    margin-left: auto;
+}
+
+.btn-createCourse button {
+    color: white;
+    gap: 8px;
+    font-size: .75em;
+    margin-right: 160px;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    padding: 9px;
     border: none;
-    background-color: orangered;
-    font-weight: bolder;
+    background-color: #001945;
+    border-radius: 6px;
     transition: 0.4s ease;
 }
 
-.logout:hover {
+.btn-createCourse button:hover {
+    transform: translateY(-2px);
+    background-color: #00163b;
     cursor: pointer;
-    background-color: rgb(201, 54, 0);
 }
 
-.identifier-p {
-    text-align: end;
-    font-size: .7em;
+.courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 }
 
-.span-email {
-    color: blue;
+.div-courses,
+.div-courses-inative {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    width: 350px;
+    height: 200px;
+    background-color: white;
+}
+
+.status-ativo,
+.status-inativo {
+    display: flex;
+    align-items: center;
+    font-size: .85em;
+    color: #00429C;
+    border-radius: 9px;
+    margin: 15px;
+    padding: 1px 10px;
+    text-align: center;
+    background-color: #2c95e563;
+}
+
+.id-course {
+    margin: 15px;
+}
+
+.btn-div-courses {
+    display: flex;
+    justify-content: space-between;
+    margin: 45px 20px 0px 0px;
+}
+
+.actid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.div-courses h4,
+.div-courses-inative h4 {
+    color: #003185;
+    text-indent: 15px;
+    font-size: 1.3em;
+}
+
+.div-courses > p,
+.div-courses-inative > p {
+    display: flex;
+    font-size: .8em;
+    text-indent: 3px;
+    margin: 5px 15px;
+    color: grey;
+}
+
+.price {
+    font-weight: bolder;
+    color: rgb(61, 61, 61);
+}
+
+.desactive-btn,
+.div-courses-inative > .active-btn {
+    display: flex;
+    margin-left: 15px;
+}
+
+.curso-ativo,
+.curso-inativo {
+    background-color: rgba(0, 0, 255, 0);
+    font-weight: bolder;
+    font-size: .8em;
+    border: none;
+    transition: 0.2s ease;
+}
+
+.curso-ativo {
+    color: rgb(199, 4, 4);
+}
+
+.curso-inativo {
+    margin-left: 15px;
+    color: skyblue;
+}
+
+.curso-ativo:hover,
+.curso-inativo:hover {
+    cursor: pointer;
+    transform: translateY(-1px);
 }
 
 .div-logParag {
-    margin-top: 60px;
-    
+    flex: 1;
 }
 
-
-.btn-createCourse {
+.btn-enrollments,
+.btn-enrollments-desac {
     display: flex;
-    justify-content: center;
-}
-.btn-createCourse > button {
-    padding: 12px;
-    margin: 10px;
+    align-items: center;
+    gap: 5px;
+    background-color: rgb(238, 237, 237);
     border: none;
-    background: linear-gradient(120deg, #182dec, #020974);
-    color: white;
-    border-radius: 6px; 
+    border-radius: 5px;
+    color: #01296e;
+    font-weight: bolder;
+    padding: 10px 14px;
     transition: 0.3s ease;
 }
 
-.btn-createCourse > button:hover {
-    box-shadow: 0 0 10px 0 #0401b1;
-    cursor: pointer;
+.btn-enrollments:hover,
+.btn-enrollments-desac:hover {
     transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.div-courses-inative {
+    background-color: #00163b;
+}
+
+.div-courses-inative h4 {
+    color: white;
+}
+
+.status-inativo {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.192);
+}
+
+.id-course {
+    color: #1b3e7a;
+}
+
+.div-courses-inative .price {
+    color: white;
+}
+
+.div-courses-inative .btn-enrollments-desac {
+    border: 1px solid white;
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.arr-enrollments,
+.eye-enrollments {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+@media (max-width: 768px) {
+
+    .h1-courses {
+        text-indent: 20px;
+        font-size: 1.5em;
+    }
+
+    .courses-paragraph {
+        width: auto;
+        margin: 10px 20px;
+        font-size: .85em;
+    }
+
+    .btn-createCourse {
+        margin: 10px 20px;
+        justify-content: flex-start;
+    }
+
+    .btn-createCourse button {
+        margin-right: 0;
+        width: auto;
+    }
+
+    .courses-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .div-courses,
+    .div-courses-inative {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .div-courses h4,
+    .div-courses-inative h4 {
+        font-size: 1.1em;
+    }
+
+    .div-courses > p,
+    .div-courses-inative > p {
+        font-size: .75em;
+    }
+
+    .btn-div-courses {
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px 10px 0px 10px;
+    }
+
+    .btn-enrollments,
+    .btn-enrollments-desac {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .curso-ativo,
+.curso-inativo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: flex-start;
+}
+
+    .actid {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
 }

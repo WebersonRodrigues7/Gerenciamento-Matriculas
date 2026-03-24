@@ -1,21 +1,44 @@
 
 
 footer{
-    
     width: 100%;
     padding: 12px;
-    background: linear-gradient(120deg, #04079e, #0313fc);
+    background-color: #e0e7f3d5;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    box-shadow: 5px 3px 11px rgba(0, 0, 0, 0.397);
-    color: white;
+    padding: 35px 0px 30px 10px;
+    margin-top: 35px;
     
 }
 
-.div-logParag {
-    flex: 1;
+.title-footer {
+    font-size: .9em;
+    
+    color: #001945;
+    font-weight: bolder;
 }
+
+ul {
+    display: flex;
+    list-style: none;
+    justify-content: end;
+    padding-right: 20px;
+    gap: 20px;
+}
+
+ul li {
+    font-size: .75em;
+    color: #7d8a9b ;
+}
+
+footer p {
+    font-size: .7em;
+    color: #7d8a9b ;
+}
+
+
+
+
 
 
 
